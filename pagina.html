@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ichiqui  Dispositivos Inteligentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">i<span>chiqui</span></div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Inicio</a>
+        <a href="#catalog-anchor" class="nav-link" onclick="setTypeFilter('celular')">Celulares</a>
+        <a href="#catalog-anchor" class="nav-link" onclick="setTypeFilter('portatil')">Portátiles</a>
+        <a href="admin.html" class="nav-link nav-admin">zona Admin</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">De U.S.A al occidente de boyaca</span>
+      <h1 class="hero-title">Descubre los<br><em>mejores precios</em> hoy</h1>
+      <p class="hero-sub">Los mejores celulares y portátiles con reseñas reales, especificaciones completas y precios actualizados.</p>
+      <div class="search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Buscar dispositivo, marca…" oninput="applyFilters()">
+      </div>
+    </div>
+  </section>
+
+ 
+  <section class="filters-bar">
+    <div class="container">
+      <div class="filters-inner">
+        <div class="fg">
+          <label>Tipo</label>
+          <select id="filterType" onchange="applyFilters()">
+            <option value="all">Todos</option>
+            <option value="celular"> Celulares</option>
+            <option value="portatil"> Portátiles</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Marca</label>
+          <select id="filterBrand" onchange="applyFilters()">
+            <option value="all">Todas las marcas</option>
+            <option>Apple</option>
+            <option>Samsung</option>
+            <option>Xiaomi</option>
+            <option>Dell</option>
+            <option>HP</option>
+            <option>Lenovo</option>
+            <option>ASUS</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Ordenar</label>
+          <select id="filterSort" onchange="applyFilters()">
+            <option value="date">Más recientes</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre A–Z</option>
+            <option value="rating">Mejor valorados</option>
+          </select>
+        </div>
+        <button class="btn-reset" onclick="resetFilters()">↺ Limpiar filtros</button>
+      </div>
+      <div class="results-info" id="resultsInfo"></div>
+    </div>
+  </section>
+
+
+  <main class="catalog-section">
+    <div class="container">
+      <span id="catalog-anchor"></span>
+      <div class="section-hd">
+        <h2 class="section-title">Catálogo de Dispositivos</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="devices-grid" id="devicesGrid"></div>
+    </div>
+  </main>
+
+  <section class="admin-cta">
+    <div class="container">
+      <div class="admin-cta-inner">
+        <div>
+          <h3>Panel de Administración</h3>
+          <p>Agrega, edita y gestiona todo el catálogo de dispositivos, marcas y reseñas.</p>
+        </div>
+        <a href="admin.html" class="btn-primary">Ir al Admin </a>
+      </div>
+    </div>
+  </section>
+
+ 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo">i<span>chiqui</span></div>
+          <p>Tu guía definitiva en el mundo de los dispositivos inteligentes. Reseñas honestas, especificaciones completas y precios reales.</p>
+        </div>
+        <div>
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="#" onclick="setTypeFilter('celular')">Celulares</a></li>
+            <li><a href="#" onclick="setTypeFilter('portatil')">Portátiles</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Información</h4>
+          <ul>
+            <li><a href="admin.html">zona admin</a></li>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p> 2026 ichiqui — by camilo Ramirez
+    </div>
+  </footer>
+
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalBox">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div class="modal-inner" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
