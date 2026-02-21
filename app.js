@@ -68,11 +68,11 @@ function renderCards(list) {
   grid.innerHTML = list.map((d, i) => `
     <div class="device-card" style="animation-delay:${i * 45}ms" onclick="openModal(${d.id})">
       <div class="card-img">
-  <span class="card-badge ${d.type === 'celular' ? 'badge-y' : 'badge-b'}">
-    ${d.type === 'celular' ? '📱 Celular' : '💻 Portátil'}
-  </span>
-  <img src="${d.image}" alt="${d.name}" class="card-device-img">
-</div>
+        <span class="card-badge ${d.type === 'celular' ? 'badge-y' : 'badge-b'}">
+          ${d.type === 'celular' ? '📱 Celular' : '💻 Portátil'}
+        </span>
+        ${d.emoji}
+      </div>
       <div class="card-body">
         <div class="card-brand">${d.brand}</div>
         <div class="card-name">${d.name}</div>
